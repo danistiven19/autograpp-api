@@ -1,9 +1,9 @@
 // Import necessary modules
 const express = require('express');
-const logger = require('morgan');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const routerAPI = require('./routes');
+const connectDB = require('./config/db');
 
 // Load environment variables from .env file
 dotenv.config();
@@ -12,9 +12,11 @@ dotenv.config();
 const app = express();
 
 // Middleware setup
-app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// Database connection
+connectDB();
 
 // Routes setup
 routerAPI(app);
