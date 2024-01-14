@@ -1,2 +1,3 @@
 # Ignore Express framework
 node_modules/
+coverage/
