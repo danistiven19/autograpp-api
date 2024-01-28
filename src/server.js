@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const routerAPI = require('./routes');
 const connectDB = require('./config/db');
+const cors = require('cors');
 
 // Load environment variables from .env file
 dotenv.config();
@@ -12,6 +13,7 @@ dotenv.config();
 const app = express();
 
 // Middleware setup
+app.use(cors('localhost:3000'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
