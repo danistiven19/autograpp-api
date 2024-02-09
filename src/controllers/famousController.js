@@ -5,7 +5,7 @@ const getAll = async(req, res) => {
     const famous = await FamousService.getAllFamous();
     res.json(famous);
   } catch(err) {
-    res.status(500).send('Something broke!', err.stack);
+    res.status(500).send('Something broke!' + err.stack);
   }
 }
 
@@ -14,7 +14,7 @@ const createFamous = async(req, res) => {
     const famous = await FamousService.createFamous(req.body);
     res.json(famous);
   } catch(err) {
-    res.status(500).send('Something broke!');
+    res.status(500).send('Something broke!: ' + err.stack);
   }
 }
 

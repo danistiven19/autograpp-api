@@ -6,12 +6,13 @@ const famousSchema = new mongoose.Schema({
     required: true
   },
   occupation: {
-    type: String,
-    required: true
+    type: String
+  },
+  autograph: {
+    type: String
   },
   age: {
-    type: Number,
-    required: true
+    type: Number
   }
 });
 
