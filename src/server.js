@@ -15,7 +15,7 @@ const app = express();
 // Middleware setup
 app.use(cors('localhost:3000'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Database connection
 connectDB();
@@ -26,7 +26,7 @@ routerAPI(app);
 // Error handling
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).send('Something broke!');
+  res.status(500).send('Something broke: '+ err.stack);
 });
 
 module.exports = app;
